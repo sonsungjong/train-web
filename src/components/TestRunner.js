@@ -83,7 +83,6 @@ export default function TestRunner({ baseId, variants, answers = {} }) {
                             <div className="w-3 h-3 rounded-full bg-amber-500"></div>
                             <div className="w-3 h-3 rounded-full bg-green-500"></div>
                         </div>
-                        <span className="font-mono text-xs text-zinc-500 tracking-wider uppercase">{currentVariant.filename}</span>
                     </div>
 
                     {/* Code Body */}
