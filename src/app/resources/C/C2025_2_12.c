@@ -28,7 +28,9 @@ int main(){
     int first_out = dequeue(&queue);
     int second_out = dequeue(&queue);
 
-    printf("%d 그리고 %d\n", first_out, second_out)
+    printf("%d 그리고 %d\n", first_out, second_out);
 
     return 0;
 }
+
+// 2 그리고 3

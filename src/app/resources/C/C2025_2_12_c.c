@@ -66,3 +66,5 @@ int main(){
  * dequeue():   return data[3]=40, front=0
  * dequeue():   return data[0]=50, front=1
  */
+
+// 30 40 50

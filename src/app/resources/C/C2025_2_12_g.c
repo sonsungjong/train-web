@@ -34,3 +34,6 @@ int main() {
     
     return 0;
 }
+
+// Next Pop: 20 
+// Front: 2, Rear: 0
