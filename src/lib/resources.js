@@ -69,9 +69,17 @@ export async function getTests(category) {
         }
 
         if (!groups[baseId]) {
+            // Format Title: C2025_2_12 -> 2025년 2월 12일
+            // RegEx to capture Year, Month, Day irrespective of Prefix
+            const match = baseId.match(/(\d{4})_(\d{1,2})_(\d{1,2})/);
+            let title = baseId;
+            if (match) {
+                title = `${match[1]}년 ${match[2]}월 ${match[3]}일`;
+            }
+
             groups[baseId] = {
-                slug: baseId, // The slug for the URL is now the Base ID
-                title: baseId,
+                slug: baseId,
+                title: title,
                 category,
                 files: []
             };
@@ -82,8 +90,22 @@ export async function getTests(category) {
     // Convert groups to array
     const problems = Object.values(groups);
 
-    // Sort problems by ID (Ascending)
-    problems.sort((a, b) => a.slug.localeCompare(b.slug));
+    // Sort problems by ID (Descending - Newest first)
+    problems.sort((a, b) => b.slug.localeCompare(a.slug));
+
+    // Assign Titles sequentially: "C언어 1번", "JAVA 1번", etc.
+    const categoryDisplay = {
+        c: 'C언어',
+        java: 'JAVA',
+        python: 'Python',
+        sql: 'SQL'
+    };
+
+    const displayPrefix = categoryDisplay[category.toLowerCase()] || category.toUpperCase();
+
+    problems.forEach((problem, index) => {
+        problem.title = `${displayPrefix} ${index + 1}번`;
+    });
 
     return problems;
 }

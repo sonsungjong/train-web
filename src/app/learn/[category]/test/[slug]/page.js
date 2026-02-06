@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import path from 'path';
+import fs from 'fs';
 import { getTestVariants } from '@/lib/resources';
 import TestRunner from '@/components/TestRunner';
 
@@ -7,6 +9,18 @@ export default async function TestDetail({ params }) {
 
     // slug is now the baseId (e.g. C2025_2_12)
     const variants = await getTestVariants(category, slug);
+
+    // Load answers
+    let answers = {};
+    try {
+        const answersPath = path.join(process.cwd(), 'src/lib/answers.json');
+        if (fs.existsSync(answersPath)) {
+            const fileContent = fs.readFileSync(answersPath, 'utf-8');
+            answers = JSON.parse(fileContent);
+        }
+    } catch (e) {
+        console.error("Failed to load answers:", e);
+    }
 
     return (
         <div className="min-h-screen bg-[#0a0a0a]">
@@ -26,7 +40,7 @@ export default async function TestDetail({ params }) {
                 </Link>
             </div>
 
-            <TestRunner baseId={slug} variants={variants} />
+            <TestRunner baseId={slug} variants={variants} answers={answers} />
         </div>
     );
 }
