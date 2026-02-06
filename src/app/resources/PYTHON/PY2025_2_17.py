@@ -8,4 +8,5 @@ value_set.add(99)
 
 print(len(value_set & set(double_map.values())))
 
+
 # Output: 2
