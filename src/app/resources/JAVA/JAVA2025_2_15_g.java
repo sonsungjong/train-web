@@ -3,7 +3,7 @@ class Wallet {
     Wallet(int m) { this.money = m; }
 }
 
-public class ReferenceSwapPractice {
+public class Example {
     public static void main(String[] args) {
         Wallet w1 = new Wallet(100);
         Wallet w2 = new Wallet(200);

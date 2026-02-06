@@ -20,7 +20,7 @@ enum Color {
     }
 }
 
-public class Practice_3_17 {
+public class Example {
     public static void main(String[] args) {
         Color c = Color.values()[Color.GREEN.name().length() - 3];
         System.out.println(c.getCode());

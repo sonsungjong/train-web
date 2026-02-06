@@ -5,7 +5,7 @@
  * 
  * 아래 코드의 출력 결과를 예측하시오.
  */
-public class Practice_2_9 {
+public class Example {
     static interface Calculator {
         int compute(int x) throws Exception;
     }

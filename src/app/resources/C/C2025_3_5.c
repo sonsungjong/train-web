@@ -16,3 +16,5 @@ int main(){
     printf("%s", ptr->label + (ptr->num - 6));
     return 0;
 }
+
+// N

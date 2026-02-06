@@ -18,3 +18,5 @@ int main(){
     printf("%d 그리고 %d\n", points[1].x, points[1].y);
     return 0;
 }
+
+// 5 그리고 6

@@ -31,7 +31,7 @@ class DiscountProduct extends Product {
     }
 }
 
-public class Practice_3_12 {
+public class Example {
     public static void main(String[] args) {
         DiscountProduct dp = new DiscountProduct("Laptop", 1000, 20);
         System.out.println(dp.finalPrice());

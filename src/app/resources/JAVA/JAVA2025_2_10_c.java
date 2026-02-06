@@ -7,7 +7,7 @@
  * 
  * 아래 코드의 출력 결과를 예측하시오.
  */
-public class Practice_2_10 {
+public class Example {
     public static class Vehicle {
         public int speed(int base) { return base + 10; }
         public static String category() { return "Vehicle"; }

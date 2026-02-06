@@ -24,3 +24,5 @@ int main() {
 
     return 0;
 }
+
+// ID: 102, Score: 70

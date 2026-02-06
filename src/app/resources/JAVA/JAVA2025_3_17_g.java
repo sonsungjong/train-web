@@ -8,7 +8,7 @@ enum Grade {
     Grade(int score) { this.score = score; }
 }
 
-public class EnumPractice {
+public class Example {
     public static void main(String[] args) {
         // 문제 의도: Enum 배열에서 특정 인덱스의 값을 꺼내기
         

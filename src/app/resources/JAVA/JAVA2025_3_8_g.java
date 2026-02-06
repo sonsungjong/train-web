@@ -17,7 +17,7 @@ class MP3Player implements Player {
     }
 }
 
-public class InterfacePractice {
+public class Example {
     public static void main(String[] args) {
         Player p = new MP3Player("Jazz");
         p.play();

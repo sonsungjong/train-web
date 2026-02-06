@@ -1,4 +1,4 @@
-public class MyClass{
+public class Example{
     public static void modify(String[] arr, String str){
         arr[0] = str;
         str = "z";

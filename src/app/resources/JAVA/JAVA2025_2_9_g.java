@@ -1,4 +1,4 @@
-public class LambdaExceptionPractice {
+public class Example {
     interface Calculator {
         int calc(int n) throws Exception;
     }

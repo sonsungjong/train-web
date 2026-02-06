@@ -15,7 +15,7 @@ class CoffeeMaker extends Device{
     }
 }
 
-public class MainApp{
+public class Example{
     public static void main(String[] args){
         CoffeeMaker cm = new CoffeeMaker();
         cm.start();

@@ -25,7 +25,7 @@ class Document extends Printable {
     }
 }
 
-public class Practice_3_8 {
+public class Example {
     public static void main(String[] args) {
         Document doc = new Document();
         doc.print();

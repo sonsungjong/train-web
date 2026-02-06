@@ -21,7 +21,7 @@ class ColorPoint extends Point {
     }
 }
 
-public class SuperConstructorPractice {
+public class Example {
     public static void main(String[] args) {
         ColorPoint cp = new ColorPoint(5, 10, "Red");
         cp.show();

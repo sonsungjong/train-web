@@ -10,3 +10,5 @@ int main(){
     putchar(country[index -3]);
     return 0;
 }
+
+// T

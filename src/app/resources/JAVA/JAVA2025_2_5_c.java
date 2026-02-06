@@ -6,7 +6,7 @@
  * 
  * 아래 코드의 출력 결과를 예측하시오.
  */
-public class Practice_2_5 {
+public class Example {
     public static void change(int[] nums, int val) {
         nums[0] = val;
         val = 999;
@@ -38,3 +38,6 @@ public class Practice_2_5 {
  * - String[]도 배열이므로 참조 전달 → 요소 변경 시 원본 반영
  * - String은 재할당해도 원본에 영향 없음 (불변 객체)
  */
+
+
+// 20 20

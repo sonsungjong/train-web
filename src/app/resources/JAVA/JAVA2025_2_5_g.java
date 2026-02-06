@@ -1,4 +1,4 @@
-public class ReferencePractice {
+public class Example {
     public static void update(int[] numbers, String text) {
         numbers[0] = 99;      // 1. 배열의 내부 값을 변경 (원본 영향 O)
         text = "World";       // 2. 변수에 새로운 문자열 할당 (원본 영향 X)
@@ -15,3 +15,5 @@ public class ReferencePractice {
         System.out.println(arr[0] + str); 
     }
 }
+
+// 99Hello

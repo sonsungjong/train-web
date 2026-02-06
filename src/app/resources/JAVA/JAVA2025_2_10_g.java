@@ -11,7 +11,7 @@ class Child extends Parent {
     static void printStatic() { System.out.println("Child Static"); }
 }
 
-public class StaticHidingPractice {
+public class Example {
     public static void main(String[] args) {
         Parent p = new Child();
         

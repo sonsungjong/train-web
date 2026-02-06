@@ -18,7 +18,7 @@ class Tile extends Shape{
     }
 }
 
-public class Demo{
+public class Example{
     public static void main(String[] args){
         Tile t = new Tile(10);
         System.out.println(t.calcArea());

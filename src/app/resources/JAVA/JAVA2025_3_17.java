@@ -12,7 +12,7 @@ enum Level{
     }
 }
 
-public class Runner{
+public class Example{
     public static void main(String[] args){
         Level lv = Level.values()[Level.X.name().length()];
         System.out.println(lv.getTag());

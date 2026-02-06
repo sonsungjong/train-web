@@ -32,3 +32,5 @@ int main() {
     printf("%u\n", res);
     return 0;
 }
+
+// 6

@@ -6,9 +6,9 @@ struct Element{
 };
 
 int main(){
-    struct Element* e1 = {NULL, 3u};
-    struct Element* e2 = {NULL, 6u};
-    struct Element* e3 = {NULL, 9u};
+    struct Element e1 = {NULL, 3u};
+    struct Element e2 = {NULL, 6u};
+    struct Element e3 = {NULL, 9u};
 
     e3.next = &e2;
     e2.next = &e1;
@@ -26,3 +26,5 @@ int main(){
 
     return 0;
 }
+
+// 214

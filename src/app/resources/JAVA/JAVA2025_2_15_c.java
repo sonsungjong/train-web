@@ -5,7 +5,7 @@
  * 
  * 아래 코드의 출력 결과를 예측하시오.
  */
-public class Practice_2_15 {
+public class Example {
     public static class Item {
         public int price;
         public Item(int price) {

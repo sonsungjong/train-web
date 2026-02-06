@@ -24,3 +24,6 @@ int main(){
     printf("%d %d %d", head->data, head->next->data, head->next->next->data);
     return 0;
 }
+
+
+// 3 1 2
