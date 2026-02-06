@@ -51,5 +51,7 @@ public class Example {
  * - Level.X.name() → "X" (길이 1)
  * - Level.values()[1] → Y
  * - Y.getTag() → "AB"
- * - 정답: AB
+
  */
+
+// BLU

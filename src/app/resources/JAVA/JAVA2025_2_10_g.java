@@ -19,3 +19,6 @@ public class Example {
         p.printStatic(); // 2. 무엇이 출력될까? (다형성 적용 X, Parent 따라감)
     }
 }
+
+// Child Name
+// Parent Static

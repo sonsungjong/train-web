@@ -11,9 +11,7 @@ class ColorPoint extends Point {
     String color;
 
     ColorPoint(int x, int y, String color) {
-        // 여기 빈칸: 부모의 x, y를 초기화 하려면?
-        super(x, y); 
-        this.color = color;
+        (이곳에 들어갈 코드는?)
     }
     
     void show() {
@@ -27,3 +25,5 @@ public class Example {
         cp.show();
     }
 }
+
+// Red point at 5,10

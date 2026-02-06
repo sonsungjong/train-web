@@ -2,8 +2,7 @@ interface Device{
     void start();
 }
 
-// extends 가 빈칸인 문제였음
-class CoffeeMaker extends Device{
+class CoffeeMaker (빈칸) Device{
     private void String model;
 
     public CoffeeMaker(){

@@ -23,3 +23,6 @@ public class Example {
         System.out.println(w1.money + ", " + w2.money);
     }
 }
+
+
+// 100, 500

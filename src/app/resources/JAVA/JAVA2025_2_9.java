@@ -23,3 +23,5 @@ public class Example{
         System.out.print(perform(firstFunc) + perform(secondFunc));
     }
 }
+
+// 19

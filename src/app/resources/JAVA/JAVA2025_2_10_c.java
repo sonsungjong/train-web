@@ -49,3 +49,6 @@ public class Example {
  * - pet.type(): static 메서드 하이딩 → Animal.type() = "Animal"
  * - 결과: 5 + "Animal" → "5Animal"
  */
+
+
+// 25Vehicle

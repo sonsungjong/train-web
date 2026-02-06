@@ -1,9 +1,9 @@
-interface Player {
-    void play();
+class Player {
+    void play(){}
 }
 
-// 빈칸 채우기 연습: 인터페이스를 구현할 때 사용하는 키워드?
-class MP3Player implements Player { 
+
+class MP3Player (빈칸) Player { 
     String song;
     
     // 생성자 문법 확인
@@ -23,3 +23,5 @@ public class Example {
         p.play();
     }
 }
+
+// Playing Jazz

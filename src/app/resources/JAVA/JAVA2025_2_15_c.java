@@ -65,3 +65,5 @@ public class Example {
  * - box2.value = box3.value = 3
  * - 출력: box1.value=1, box2.value=3, box3.value=3 → "1a3b3"
  */
+
+// 300x200y300

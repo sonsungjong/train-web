@@ -9,8 +9,7 @@ class Shape{
 
 class Tile extends Shape{
     Tile(int size){
-        // (빈칸)(size, size);
-        super(size, size);
+        (빈칸)(size, size);
     }
 
     int calcArea(){
@@ -22,5 +21,8 @@ public class Example{
     public static void main(String[] args){
         Tile t = new Tile(10);
         System.out.println(t.calcArea());
+        // 100
     }
 }
+
+// super

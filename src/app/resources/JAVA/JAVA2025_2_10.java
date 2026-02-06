@@ -16,3 +16,5 @@ public class Example{
         System.out.println(pet.addTwo(2) + pet.type());
     }
 }
+
+// 5Animal

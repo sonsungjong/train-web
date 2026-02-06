@@ -21,9 +21,7 @@ class DiscountProduct extends Product {
     int discountRate;
 
     DiscountProduct(String name, int price, int rate) {
-        // (빈칸)(name, price);
-        super(name, price);
-        this.discountRate = rate;
+        (이곳에 들어갈 코드는?)
     }
 
     int finalPrice() {
@@ -56,3 +54,8 @@ public class Example {
  * - calcArea() = w * h = 10 * 10 = 100
  * - 빈칸에 들어갈 답: super
  */
+
+// 800
+
+// super(name, price);
+// this.discountRate = rate;

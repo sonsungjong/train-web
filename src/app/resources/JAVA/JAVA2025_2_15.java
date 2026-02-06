@@ -22,3 +22,5 @@ public class Example{
         System.out.println(box1.value + "a" + box2.value + "b" + box3.value);
     }
 }
+
+// 1a3b3
