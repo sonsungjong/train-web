@@ -65,17 +65,11 @@ export default function TestRunner({ baseId, variants, answers = {} }) {
         setFeedback(null);
     };
 
-    const getStepLabel = (type) => {
-        if (type.includes('_g')) return 'STEP 1 : CONCEPT';
-        if (type.includes('_c')) return 'STEP 2 : PRACTICE';
-        return 'FINAL CHALLENGE';
-    };
-
     return (
         <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-white/20 flex items-center justify-center p-4 lg:p-12">
-            <div className="w-full max-w-[1500px] aspect-video min-h-[600px] max-h-[900px] flex border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl bg-[#0a0a0a]">
+            <div className="w-full max-w-[1500px] flex flex-col lg:flex-row lg:aspect-video min-h-[850px] lg:min-h-[600px] lg:max-h-[900px] border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl bg-[#0a0a0a]">
                 {/* LEFT PANEL: CODE */}
-                <div className="w-1/2 h-full flex flex-col border-r border-zinc-800 bg-[#0a0a0a]">
+                <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex flex-col border-b lg:border-b-0 lg:border-r border-zinc-800 bg-[#0a0a0a]">
                     {/* Code Header */}
                     <div className="flex-none h-14 px-6 border-b border-zinc-800 flex items-center justify-between bg-[#0a0a0a]">
                         <div className="flex items-center gap-2 opacity-50">
@@ -94,7 +88,7 @@ export default function TestRunner({ baseId, variants, answers = {} }) {
                 </div>
 
                 {/* RIGHT PANEL: INTERACTION */}
-                <div className="w-1/2 h-full flex flex-col bg-black relative">
+                <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex flex-col bg-black relative">
                     {/* Progress Indicator (Header) - CENTERED */}
                     <div className="flex-none h-16 px-8 border-b border-zinc-900 flex items-center justify-center relative">
                         <div className="flex items-center gap-3">
@@ -105,7 +99,7 @@ export default function TestRunner({ baseId, variants, answers = {} }) {
                                 />
                             ))}
                         </div>
-                        <span className="absolute right-8 text-[10px] font-bold text-zinc-600 tracking-widest uppercase">{getStepLabel(currentVariant.type)}</span>
+
                     </div>
 
                     {/* Main Content - CENTERED */}
