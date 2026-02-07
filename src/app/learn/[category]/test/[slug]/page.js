@@ -22,6 +22,21 @@ export default async function TestDetail({ params }) {
         console.error("Failed to load answers:", e);
     }
 
+    // Load Problem Image (if exists)
+    let problemImage = null;
+    try {
+        const categoryUpper = category.toUpperCase();
+        const imagePath = path.join(process.cwd(), 'src/app/resources', categoryUpper, `${slug}.png`);
+
+        if (fs.existsSync(imagePath)) {
+            const imageBuffer = fs.readFileSync(imagePath);
+            const base64Image = imageBuffer.toString('base64');
+            problemImage = `data:image/png;base64,${base64Image}`;
+        }
+    } catch (e) {
+        console.error("Failed to load problem image:", e);
+    }
+
     return (
         <div className="min-h-screen bg-[#0a0a0a]">
             {/* Navigation Header only on desktop or overlay? 
@@ -40,7 +55,7 @@ export default async function TestDetail({ params }) {
                 </Link>
             </div>
 
-            <TestRunner baseId={slug} variants={variants} answers={answers} />
+            <TestRunner baseId={slug} variants={variants} answers={answers} problemImage={problemImage} />
         </div>
     );
 }

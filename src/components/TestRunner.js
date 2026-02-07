@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 
-export default function TestRunner({ baseId, variants, answers = {} }) {
+export default function TestRunner({ baseId, variants, answers = {}, problemImage }) {
     const [stepIndex, setStepIndex] = useState(0);
     const [userAnswer, setUserAnswer] = useState('');
     const [feedback, setFeedback] = useState(null); // 'correct', 'incorrect', null
@@ -81,6 +81,15 @@ export default function TestRunner({ baseId, variants, answers = {} }) {
 
                     {/* Code Body */}
                     <div className="flex-1 overflow-auto custom-scrollbar p-8">
+                        {problemImage && (
+                            <div className="mb-8 p-1 bg-zinc-900 border border-zinc-800 rounded-lg inline-block">
+                                <img
+                                    src={problemImage}
+                                    alt="Problem Reference"
+                                    className="max-w-full h-auto max-h-[300px] object-contain rounded"
+                                />
+                            </div>
+                        )}
                         <pre className="font-mono text-[14px] leading-7 text-zinc-300">
                             {cleanCode}
                         </pre>
