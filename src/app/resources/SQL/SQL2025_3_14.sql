@@ -1,0 +1,13 @@
+CREATE TABLE R (A# VARCHAR(10), B# VARCHAR(10));
+INSERT INTO R VALUES ('a1', 'b1'), ('a1', 'b2'), ('a1', 'b4'), ('a1', 'b5'), ('a2', 'b2');
+
+CREATE TABLE S (B# VARCHAR(10));
+INSERT INTO S VALUES ('b2'), ('b4');
+
+
+R%S : S의 모든 B# 값과 연관된 A# 을 찾는다
+SELECT DISTINCT A# FROM R WHERE NOT EXISTS (
+    SELECT B# FROM S WHERE NOT EXISTS (
+        SELECT * FROM R AS R2 WHERE R2.A# = R.A# AND R2.B# = S.B#
+    )
+);

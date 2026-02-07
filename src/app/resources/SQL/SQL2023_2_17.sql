@@ -1,0 +1,7 @@
+CREATE TABLE 학과 (학과명 VARCHAR(20), 전화번호 VARCHAR(20) PRIMARY KEY, 위치 VARCHAR(20));
+CREATE TABLE 교수 (교수명 VARCHAR(20), 전화번호 VARCHAR(20), FOREIGN KEY (전화번호) REFERENCES 학과(전화번호));
+INSERT INTO 학과 VALUES ('컴퓨터공학과', '02-1234-5678', '공학관');
+INSERT INTO 교수 VALUES ('김교수', '02-1234-5678');
+
+학과 테이블에서 전화번호 컬럼을 연쇄 삭제와 함께 삭제
+ALTER TABLE 학과 DROP COLUMN 전화번호 CASCADE;
