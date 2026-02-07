@@ -1,38 +1,11 @@
-"""
-[연습문제] 2024년 3회 기출 대응
-핵심 개념: input().split()과 형변환
-
-- input() : 사용자 입력을 문자열로 받음
-- input().split() : 입력값을 공백 기준으로 분리
-- int() : 문자열을 정수로 변환
-"""
-
-# Q. 다음 코드의 (빈칸)에 들어갈 메서드를 쓰시오.
-
-x, y, z = input().____()
-x = int(x)
-y = int(y)
-z = int(z)
-total = x + y + z
-print(f"{x} + {y} + {z} = {total}")
+text = "I like apple, apple is delicious"
+result = text.______("apple", "banana")
+print(result)
 
 """
-입력값: 10 20 30
-출력값: 10 + 20 + 30 = 60
+출력값: I like banana, banana is delicious
 """
 
-
-
-
-
-
-
-
-
-
-
-# 정답: split
-# x, y, z = input().split()
-# input()은 "10 20 30"이라는 하나의 문자열을 받고,
-# split()이 공백 기준으로 ["10", "20", "30"] 리스트로 분리하여
-# 각각 x, y, z에 대입
+# 정답: replace
+# replace(old, new) : 문자열 내 old를 모두 new로 치환
+# "apple"이 2개 있으므로 둘 다 "banana"로 바뀜
