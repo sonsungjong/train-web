@@ -1,17 +1,14 @@
-records = {
-    [7,3,6],
-    [2,8,5,1],
-    [9,4],
-    [3,6,2,5]
-}
+matrix = [
+    [1, 2],
+    [3, 4, 5],
+    [6]
+]
+result = {}
 
-summary = {}
+for idx, row in enumerate(matrix):
+    if sum(row) % 2 == 0:
+        result[idx] = len(row)
 
-for idx, row in enumerate(records):
-    total = sum(row)
-    count = len(row)
-    summary[idx] = (total, count)
+print(result)
 
-print(summary)
-
-# 출력값 {0: (16, 3), 1: (16, 4), 2: (13, 2), 3: (16, 4)}
+# {1: 3, 2: 1}

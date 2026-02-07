@@ -1,12 +1,15 @@
-numbers = [1,2,3]
-double_map = {n: n*2 for n in numbers}
-value_set = set(double_map.values())
+keys = ['a', 'b', 'c']
+my_dict = {k: 0 for k in keys}
 
-numbers[0] = 99
-double_map[2] = 7
-value_set.add(99)
+# 값 변경
+my_dict['a'] = 1
+my_dict['b'] = 2
 
-print(len(value_set & set(double_map.values())))
+set_a = {0, 1}
+set_b = set(my_dict.values())
+
+# 교집합의 길이 출력
+print(len(set_a & set_b))
 
 
-# Output: 2
+# 2
