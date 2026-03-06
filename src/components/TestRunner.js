@@ -121,7 +121,14 @@ export default function TestRunner({ baseId, variants, answers = {}, problemImag
                                     <h3 className="text-zinc-500 text-sm font-semibold uppercase tracking-wider mb-2">Correct Answer</h3>
                                     <div className="bg-[#111] border border-zinc-800 rounded-xl p-6">
                                         {expectedAnswer ? (
-                                            <p className="font-mono text-xl text-green-400 break-all">{expectedAnswer}</p>
+                                            <p className="font-mono text-xl text-green-400 break-all">
+                                                {expectedAnswer.split('\n').map((line, idx) => (
+                                                    <span key={idx}>
+                                                        {line}
+                                                        <br />
+                                                    </span>
+                                                ))}
+                                            </p>
                                         ) : (
                                             <p className="text-zinc-500 italic">No answer data available for this file.</p>
                                         )}
