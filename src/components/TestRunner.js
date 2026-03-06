@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 
-export default function TestRunner({ baseId, variants, answers = {}, problemImage }) {
+export default function TestRunner({ baseId, category, variants, answers = {}, problemImage }) {
     const [stepIndex, setStepIndex] = useState(0);
     const [showAnswer, setShowAnswer] = useState(false);
 
@@ -157,7 +157,7 @@ export default function TestRunner({ baseId, variants, answers = {}, problemImag
                             </button>
                         ) : (
                             <Link
-                                href={`/learn/${variants[0].category}`}
+                                href={`/learn/${category}`}
                                 className="px-6 py-3 rounded-xl bg-white text-black hover:bg-zinc-200 transition-all flex items-center gap-2"
                             >
                                 Finish

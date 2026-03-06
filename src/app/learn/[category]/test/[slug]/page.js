@@ -55,7 +55,7 @@ export default async function TestDetail({ params }) {
                 </Link>
             </div>
 
-            <TestRunner baseId={slug} variants={variants} answers={answers} problemImage={problemImage} />
+            <TestRunner baseId={slug} category={category} variants={variants} answers={answers} problemImage={problemImage} />
         </div>
     );
 }

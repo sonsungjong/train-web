@@ -46,9 +46,9 @@
   "JAVA2025_3_8_c.java": "class Document implements Printable\nprivate String title;",
   "JAVA2025_3_8_g.java": "extends",
 
-  "PY2022_3_9.py": "",
-  "PY2022_3_9_c.py": "",
-  "PY2022_3_9_g.py": "",
+  "PY2022_3_9.py": "[101, 102, 103, 104, 105]",
+  "PY2022_3_9_c.py": "15\n15",
+  "PY2022_3_9_g.py": "[1, 2, 3, 4]",
   "PY2023_1_15.py": "",
   "PY2023_1_15_c.py": "",
   "PY2023_1_15_g.py": "",
