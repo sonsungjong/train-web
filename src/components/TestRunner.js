@@ -5,8 +5,7 @@ import Link from 'next/link';
 
 export default function TestRunner({ baseId, variants, answers = {}, problemImage }) {
     const [stepIndex, setStepIndex] = useState(0);
-    const [userAnswer, setUserAnswer] = useState('');
-    const [feedback, setFeedback] = useState(null); // 'correct', 'incorrect', null
+    const [showAnswer, setShowAnswer] = useState(false);
 
     if (!variants || variants.length === 0) {
         return <div className="text-zinc-500 p-10">Problem files not found.</div>;
@@ -38,31 +37,20 @@ export default function TestRunner({ baseId, variants, answers = {}, problemImag
         return code;
     }, [currentVariant]);
 
-    const checkAnswer = () => {
-        const expected = answers[currentVariant.filename]?.trim();
+    const expectedAnswer = answers[currentVariant.filename]?.trim();
 
-        if (!expected) {
-            setFeedback('no_data');
-            return;
-        }
-
-        if (userAnswer.trim() === expected) {
-            setFeedback('correct');
-        } else {
-            setFeedback('incorrect');
-        }
+    const handleShowAnswer = () => {
+        setShowAnswer(true);
     };
 
     const handleNext = () => {
         setStepIndex(stepIndex + 1);
-        setUserAnswer('');
-        setFeedback(null);
+        setShowAnswer(false);
     };
 
     const handlePrev = () => {
         setStepIndex(stepIndex - 1);
-        setUserAnswer('');
-        setFeedback(null);
+        setShowAnswer(false);
     };
 
     return (
@@ -122,36 +110,23 @@ export default function TestRunner({ baseId, variants, answers = {}, problemImag
                             </p>
 
                             <div className="space-y-6">
-                                <div className="relative group">
-                                    <input
-                                        type="text"
-                                        value={userAnswer}
-                                        onChange={(e) => setUserAnswer(e.target.value)}
-                                        onKeyDown={(e) => e.key === 'Enter' && checkAnswer()}
-                                        placeholder="Type output..."
-                                        className={`w-full bg-[#111] border-2 rounded-2xl px-6 py-5 text-xl text-center text-white outline-none transition-all font-mono placeholder-zinc-700
-                                    ${feedback === 'correct' ? 'border-green-500/50 shadow-[0_0_30px_-5px_rgba(34,197,94,0.3)]' :
-                                                feedback === 'incorrect' ? 'border-red-500/50 shadow-[0_0_30px_-5px_rgba(239,68,68,0.3)]' :
-                                                    'border-zinc-800 focus:border-zinc-500 focus:bg-[#151515]'}`}
-                                    />
-
-                                    {/* Feedback Messages */}
-                                    <div className={`absolute -bottom-8 left-0 w-full text-center text-sm font-medium transition-opacity duration-300 ${feedback ? 'opacity-100' : 'opacity-0'}`}>
-                                        {feedback === 'incorrect' && <span className="text-red-500">Incorrect output. Try again.</span>}
-                                        {feedback === 'no_data' && <span className="text-amber-500">Answer key missing for this file.</span>}
-                                        {feedback === 'correct' && <span className="text-green-500">Correct Answer!</span>}
+                                <button
+                                    onClick={handleShowAnswer}
+                                    className="w-full py-4 rounded-xl font-bold bg-white text-black hover:bg-zinc-200 shadow-lg shadow-white/5 text-base tracking-wide transition-all transform active:scale-[0.98]"
+                                >
+                                    SHOW ANSWER
+                                </button>
+                                
+                                <div className={`transition-all ${showAnswer ? 'duration-300 opacity-100 translate-y-0' : 'duration-0 opacity-0 translate-y-4 pointer-events-none'}`}>
+                                    <h3 className="text-zinc-500 text-sm font-semibold uppercase tracking-wider mb-2">Correct Answer</h3>
+                                    <div className="bg-[#111] border border-zinc-800 rounded-xl p-6">
+                                        {expectedAnswer ? (
+                                            <p className="font-mono text-xl text-green-400 break-all">{expectedAnswer}</p>
+                                        ) : (
+                                            <p className="text-zinc-500 italic">No answer data available for this file.</p>
+                                        )}
                                     </div>
                                 </div>
-
-                                <button
-                                    onClick={checkAnswer}
-                                    className={`w-full py-4 rounded-xl font-bold text-base tracking-wide transition-all transform active:scale-[0.98]
-                                ${feedback === 'correct'
-                                            ? 'bg-green-500 text-black shadow-lg shadow-green-500/20 hover:bg-green-400'
-                                            : 'bg-white text-black hover:bg-zinc-200 shadow-lg shadow-white/5'}`}
-                                >
-                                    {feedback === 'correct' ? 'CONTINUE NEXT' : 'CHECK ANSWER'}
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -169,10 +144,7 @@ export default function TestRunner({ baseId, variants, answers = {}, problemImag
                         {stepIndex < variants.length - 1 ? (
                             <button
                                 onClick={handleNext}
-                                className={`px-6 py-3 rounded-xl transition-all flex items-center gap-2
-                            ${feedback === 'correct'
-                                        ? 'bg-zinc-100 text-black hover:bg-white'
-                                        : 'text-zinc-500 hover:text-white hover:bg-zinc-900'}`}
+                                className="px-6 py-3 rounded-xl bg-zinc-100 text-black hover:bg-white transition-all flex items-center gap-2"
                             >
                                 Next Step →
                             </button>
