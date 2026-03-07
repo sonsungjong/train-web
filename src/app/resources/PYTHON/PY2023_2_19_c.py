@@ -7,15 +7,9 @@ print(result)
 
 
 
+# 정답: 
+# InfoTechExpert
 
-
-
-
-
-
-
-
-# 정답: InfoTechExpert
 # 풀이:
 # s[:4]     → "Info"
 #          I(0) n(1) f(2) o(3)

@@ -9,7 +9,10 @@ val_set.add(50)
 print(len(val_set & set(triple_map.values())))
 
 
-# 정답: 2
+# 정답:
+# 2
+
+
 # 풀이:
 # 초기: triple_map = {2:6, 4:12, 6:18}, val_set = {6, 12, 18}
 #

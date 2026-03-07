@@ -23,7 +23,10 @@ result = sum_even_levels(root)
 print(result)
 
 
-# 정답: 230
+# 정답: 
+# 230
+
+
 # 풀이:
 # 레벨 0 (짝수): 10
 # 레벨 1 (홀수): 20, 30

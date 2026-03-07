@@ -13,16 +13,10 @@ out = f"xy{countPattern(s, p1)}yz{countPattern(s, p2)}"
 print(out)
 
 
+# 정답: 
+# xy3yz3
 
 
-
-
-
-
-
-
-
-# 정답: xy3yz3
 # 풀이:
 # "xy" 검색: "xyzxyzxyz" 에서 인덱스 0,3,6 → 3회
 # "yz" 검색: "xyzxyzxyz" 에서 인덱스 1,4,7 → 3회

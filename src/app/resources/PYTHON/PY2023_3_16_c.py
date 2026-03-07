@@ -9,14 +9,8 @@ Fruits: ['apple', 'banana', 'cherry', 'grape']
 """
 
 
+# 정답: 
+# split
 
 
-
-
-
-
-
-
-
-# 정답: split
 # fruits = data.split(',')
