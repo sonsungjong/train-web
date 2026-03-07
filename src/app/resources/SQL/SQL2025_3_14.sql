@@ -8,10 +8,10 @@ CREATE TABLE T (B VARCHAR(10));
 INSERT INTO T VALUES ('b4'), ('b5');
 
 [관계대수 연산 기호]
-1. Selection (σ) : 특정 조건에 맞는 행 검색
+1. Selection (σ) : 특정 조건에 맞는 행 검색 (σ_A='a1'(R))
 SELECT * FROM R WHERE A = 'a1';
 
-2. Projection (π) : 특정 속성(열) 검색
+2. Projection (π) : 특정 속성(열) 검색 (π_B(R))
 SELECT DISTINCT B FROM R;
 
 3. Union (∪) : 합집합 (S ∪ T)
