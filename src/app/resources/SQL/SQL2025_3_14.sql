@@ -15,26 +15,29 @@ SELECT * FROM R WHERE A = 'a1';
 SELECT DISTINCT B FROM R;
 
 3. Union (∪) : 합집합 (S ∪ T)
+두 릴레이션의 데이터 구조가 같을 때 중복을 제거하여 합친다.
 SELECT B FROM S
 UNION
 SELECT B FROM T;
 
 4. Intersection (∩) : 교집합 (S ∩ T)
--- (MySQL 8.0 이전 등에서는 지원하지 않을 수 있으며, 이 경우 INNER JOIN 또는 IN 연산자 활용)
+두 릴레이션에 공통으로 존재하는 튜플만 반환한다. (오라클 등에서 INTERSECT로 지원)
 SELECT B FROM S
 INTERSECT
 SELECT B FROM T;
 
 5. Difference (-) : 차집합 (S - T)
--- (Oracle은 MINUS, SQL Server/PostgreSQL은 EXCEPT 사용. MySQL 8.0 이전은 NOT IN 등으로 구현)
+첫 번째 릴레이션에는 존재하지만 두 번째에는 존재하지 않는 튜플 반환. (오라클 기준 MINUS 사용)
 SELECT B FROM S
-EXCEPT
+MINUS
 SELECT B FROM T;
 
 6. Cartesian Product (×) : 교차 곱 (R × S)
+두 릴레이션의 모든 튜플들을 각각 연결하여 만들어진 새로운 튜플을 반환.
 SELECT * FROM R CROSS JOIN S;
 
-7. Natural Join (⋈) : 자연 조인 (동일한 이름을 가진 공통 속성 기준으로 조인)
+7. Natural Join (⋈) : 자연 조인 
+동일한 이름을 가진 공통 속성 기준으로 조인
 SELECT * FROM R NATURAL JOIN S;
 
 8. Division (÷) : 나누기 연산 (R ÷ S 또는 R % S)
