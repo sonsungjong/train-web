@@ -18,22 +18,27 @@ const testExtensions = {
     sql: ['.sql']
 };
 
-export async function getLectures(category) {
+export async function getLectures() {
     if (!fs.existsSync(lectureDir)) return [];
 
     const files = fs.readdirSync(lectureDir);
-    const prefix = categoryPrefixes[category];
-
-    // Safety: prefix might be undefined if invalid category
-    if (!prefix) return [];
 
     return files
-        .filter(file => file.startsWith(prefix) && file.endsWith('.md'))
-        .map(file => ({
-            slug: file,
-            title: file.replace('.md', ''),
-            category
-        }));
+        .filter(file => file.endsWith('.md'))
+        .map(file => {
+            let category = 'general';
+            for (const [cat, prefix] of Object.entries(categoryPrefixes)) {
+                if (file.startsWith(prefix)) {
+                    category = cat;
+                    break;
+                }
+            }
+            return {
+                slug: file,
+                title: file.replace('.md', ''),
+                category
+            };
+        });
 }
 
 export async function getTests(category) {

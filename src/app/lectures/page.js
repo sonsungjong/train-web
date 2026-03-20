@@ -2,21 +2,11 @@ import Link from 'next/link';
 import { getLectures } from '@/lib/resources';
 
 export default async function LectureList() {
-    // Aggregate all lectures
-    const categories = ['c', 'java', 'python', 'sql'];
-    let allLectures = [];
+    // Fetch all lectures directly
+    let allLectures = await getLectures();
 
-    for (const cat of categories) {
-        const lectures = await getLectures(cat);
-        // Add category info explicitly if needed
-        if (lectures) {
-            allLectures = [...allLectures, ...lectures];
-        }
-    }
-
-    // Sort by name or date? 
-    // currently filenames are like C20260207...
-    allLectures.sort((a, b) => b.slug.localeCompare(a.slug));
+    // Sort ascending by name/number (01 at the top, 12 at the bottom)
+    allLectures.sort((a, b) => a.slug.localeCompare(b.slug, undefined, { numeric: true }));
 
     return (
         <div className="min-h-screen bg-[#050505] text-white">
@@ -51,10 +41,11 @@ export default async function LectureList() {
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-4">
                                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-lg font-bold border border-white/5
-                                    ${lecture.category === 'c' ? 'bg-blue-500/10 text-blue-500' :
+                                            ${lecture.category === 'c' ? 'bg-blue-500/10 text-blue-500' :
                                                 lecture.category === 'java' ? 'bg-orange-500/10 text-orange-500' :
                                                     lecture.category === 'python' ? 'bg-green-500/10 text-green-500' :
-                                                        'bg-purple-500/10 text-purple-500'
+                                                        lecture.category === 'sql' ? 'bg-purple-500/10 text-purple-500' :
+                                                            'bg-zinc-500/10 text-zinc-500'
                                             }`}>
                                             {lecture.category.toUpperCase().slice(0, 1)}
                                         </div>

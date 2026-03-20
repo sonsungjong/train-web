@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import { getResourceContent } from '@/lib/resources';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 export default async function LectureDetail({ params }) {
     const { category, slug } = await params;
-    const content = await getResourceContent('lecture', slug);
+    const decodedSlug = decodeURIComponent(slug);
+    const content = await getResourceContent('lecture', decodedSlug);
 
     return (
         <div className="min-h-screen bg-[#0a0a0a] text-white p-6 md:p-12">
@@ -24,7 +26,7 @@ export default async function LectureDetail({ params }) {
                   Note: In a real app we'd use a more robust renderer with syntax highlighting.
                   For now, basic markdown rendering.
                 */}
-                    <ReactMarkdown>{content || "# Lecture not found."}</ReactMarkdown>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{content || "# Lecture not found."}</ReactMarkdown>
                 </article>
             </div>
         </div>
