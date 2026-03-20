@@ -3,6 +3,7 @@ import path from 'path';
 
 const resourcesBase = path.join(process.cwd(), 'src/app/resources');
 const lectureDir = path.join(resourcesBase, 'LECTURE');
+const testDir = path.join(resourcesBase, 'TEST');
 
 const categoryPrefixes = {
     c: 'C',
@@ -176,5 +177,25 @@ export async function getResourceContent(type, slug) {
             return fs.readFileSync(filePath, 'utf-8');
         }
     }
+    if (type === 'quiz') {
+        const filePath = path.join(testDir, slug);
+        if (fs.existsSync(filePath)) {
+            return fs.readFileSync(filePath, 'utf-8');
+        }
+    }
     return null;
+}
+
+export async function getQuizzes() {
+    if (!fs.existsSync(testDir)) return [];
+
+    const files = fs.readdirSync(testDir);
+
+    return files
+        .filter(file => file.endsWith('.md'))
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+        .map(file => ({
+            slug: file,
+            title: file.replace('.md', ''),
+        }));
 }

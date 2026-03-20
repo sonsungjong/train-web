@@ -69,7 +69,7 @@ export default function Home() {
         </div>
 
         {/* Section 2: Lecture Notes */}
-        <div>
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-white mb-8 border-l-4 border-amber-500 pl-4">
             강의 자료
           </h2>
@@ -88,6 +88,32 @@ export default function Home() {
 
               <div className="px-6 py-3 rounded-full bg-amber-500/10 text-amber-500 font-bold border border-amber-500/20 group-hover:bg-amber-500 group-hover:text-black transition-all">
                 View All Notes
+              </div>
+            </div>
+          </Link>
+        </div>
+
+        {/* Section 3: Theory Quiz */}
+        <div>
+          <h2 className="text-2xl font-bold text-white mb-8 border-l-4 border-emerald-500 pl-4">
+            이론 문제풀이
+          </h2>
+          <Link
+            href="/quizzes"
+            className="group relative overflow-hidden rounded-2xl bg-[#0a0a0a] border border-zinc-800 p-8 md:p-12 block transition-all hover:border-emerald-900/50 hover:bg-emerald-950/5"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-emerald-500 to-green-500 opacity-5 blur-[100px] group-hover:opacity-10 transition-opacity" />
+
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
+                  📝 이론 문제풀이
+                </h3>
+                <p className="text-zinc-500 text-sm">정보처리기사 실기 대비 단답형/서술형 연습</p>
+              </div>
+
+              <div className="px-6 py-3 rounded-full bg-emerald-500/10 text-emerald-500 font-bold border border-emerald-500/20 group-hover:bg-emerald-500 group-hover:text-black transition-all">
+                Start Quiz
               </div>
             </div>
           </Link>
