@@ -7,12 +7,12 @@ const GITHUB_OWNER = 'sonsungjong';
 const GITHUB_REPO = 'train-web';
 const GITHUB_BRANCH = 'master';
 
-async function checkPptxExists(category, slug) {
-    // category가 'LECTURE'인 경우에만 PPTX 확인
-    if (category.toUpperCase() !== 'LECTURE') return null;
-
-    const filePath = `pptx/LECTURE/${slug}.pptx`;
-    const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${encodeURIComponent(filePath)}?ref=${GITHUB_BRANCH}`;
+async function checkPptxExists(slug) {
+    // slug에서 .md 확장자 제거 (예: "01 요구사항 확인.md" → "01 요구사항 확인")
+    const baseName = slug.replace(/\.md$/i, '');
+    const fileName = encodeURIComponent(`${baseName}.pptx`);
+    const filePath = `pptx/LECTURE/${baseName}.pptx`;
+    const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/pptx/LECTURE/${fileName}?ref=${GITHUB_BRANCH}`;
 
     try {
         const res = await fetch(apiUrl, {
@@ -23,7 +23,7 @@ async function checkPptxExists(category, slug) {
 
         if (!res.ok) return null;
 
-        const rawUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${filePath}`;
+        const rawUrl = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}/pptx/LECTURE/${fileName}`;
         return rawUrl;
     } catch {
         return null;
@@ -34,7 +34,7 @@ export default async function LectureDetail({ params }) {
     const { category, slug } = await params;
     const decodedSlug = decodeURIComponent(slug);
     const content = await getResourceContent('lecture', decodedSlug);
-    const pptxUrl = await checkPptxExists(category, decodedSlug);
+    const pptxUrl = await checkPptxExists(decodedSlug);
 
     return (
         <div className="min-h-screen bg-[#0a0a0a] text-white p-6 md:p-12">
