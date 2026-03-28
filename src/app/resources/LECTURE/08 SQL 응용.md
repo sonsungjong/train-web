@@ -2,7 +2,7 @@
 
 ---
 
-## 1. SQL의 분류 ★매우 중요★
+## 1. SQL의 분류
 
 | 분류 | 설명 | 명령어 |
 | :--- | :--- | :--- |
@@ -27,7 +27,7 @@ CREATE TABLE 학생 (
 );
 ```
 
-### 제약조건 ★빈출★
+### 제약조건
 
 | 제약조건 | 설명 |
 | :--- | :--- |
@@ -66,7 +66,7 @@ DROP TABLE 학생 RESTRICT;  -- 다른 곳에서 참조 중이면 삭제 취소
 
 ---
 
-## 3. DML (Data Manipulation Language) ★실무&시험 단골★
+## 3. DML (Data Manipulation Language)
 
 ### SELECT 구문
 ```sql
@@ -83,7 +83,7 @@ FROM 테이블명
 * `DISTINCT`: 중복 제거
 * `ASC`: 오름차순(기본값) / `DESC`: 내림차순
 
-### 집계 함수 (Aggregate Function) ★빈출★
+### 집계 함수 (Aggregate Function)
 
 | 함수 | 설명 |
 | :--- | :--- |
@@ -120,7 +120,7 @@ DELETE FROM 학생 WHERE 학번 = '20240001';
 
 ---
 
-## 4. 서브쿼리 (Subquery) ★빈출★
+## 4. 서브쿼리 (Subquery)
 SQL 문 안에 포함된 또 다른 SQL 문입니다.
 
 ### 서브쿼리 연산자
@@ -168,7 +168,7 @@ FROM 학생 A LEFT OUTER JOIN 수강 B ON A.학번 = B.학번;
 
 ---
 
-## 6. 윈도우 함수 (Window Function) ★최근 빈출★
+## 6. 윈도우 함수 (Window Function)
 
 ### 순위 함수
 | 함수 | 설명 | 예시 (90, 80, 80, 70) |
@@ -192,7 +192,7 @@ FROM 성적;
 
 ---
 
-## 7. 뷰 (VIEW) ★빈출★
+## 7. 뷰 (VIEW)
 하나 이상의 기본 테이블로부터 유도된 **논리적(가상) 테이블**입니다.
 
 ### 뷰의 특징
@@ -215,7 +215,7 @@ DROP VIEW 컴공학생;
 
 ## 8. DCL (Data Control Language)
 
-### GRANT (권한 부여) ★빈출★
+### GRANT (권한 부여)
 ```sql
 -- 사용자 홍길동에게 학생 테이블의 SELECT, INSERT 권한 부여
 GRANT SELECT, INSERT ON 학생 TO 홍길동;
@@ -252,7 +252,7 @@ REVOKE SELECT ON 학생 FROM 홍길동 CASCADE;
 
 ---
 
-## 10. 트랜잭션 (Transaction) 특성 ★ACID 빈출★
+## 10. 트랜잭션 (Transaction) 특성
 데이터베이스의 상태를 변화시키기 위해 수행하는 논리적인 작업의 단위입니다.
 
 | 특성 | 설명 |
